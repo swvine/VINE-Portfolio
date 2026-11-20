@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The professional and creative portfolio of Shantell Vine.">
+  <title>VINE | Design • Technology • Creativity</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+<!-- VINE Animated Botanical Introduction -->
+<div class="vine-intro" id="vine-intro"
+     role="region"
+     aria-label="VINE portfolio introduction">
+
+  <div class="vine-intro-art">
+    <img src="imgs/vine-botanical.jpeg"
+         alt="Decorative emerald green and gold botanical artwork">
+  </div>
+
+  <div class="vine-intro-brand">
+    <h2>VINE</h2>
+    <p>Design • Technology • Creativity</p>
+  </div>
+
+  <button class="vine-intro-skip"
+          id="vine-intro-skip"
+          type="button">
+    Skip Intro
+  </button>
+
+</div>
+
+
+  <!-- Website Header -->
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html">VINE</a>
+
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Homepage Introduction -->
+  <main>
+    <section id="home">
+      <h1>Shantell Vine</h1>
+      <p>Design • Technology • Creativity</p>
+      <p>
+        Welcome to my portfolio, where web and digital design,
+        cybersecurity technology, and traditional art come together.
+      </p>
+
+<a href="projects.html" class="home-button">
+  Explore My Work
+</a>
+  </section>
+  <!-- VINE World Entrance -->
+<section class="world-entrance" aria-labelledby="world-entrance-title">
+  <h2 id="world-entrance-title">Discover the World of VINE</h2>
+
+  <p>
+    Step into an interactive garden where design,
+    technology, and creativity come to life.
+  </p>
+
+  <a href="world.html" class="home-button">
+    Explore VINE World
+  </a>
+</section>  
+<!-- Portfolio Specialties -->
+<section class="home-specialties" aria-labelledby="specialties-heading">
+
+  <h2 id="specialties-heading">Explore My Specialties</h2>
+
+  <div class="specialty-grid">
+
+    <a href="projects.html" class="specialty-card">
+      <h3>Web &amp; Digital Design</h3>
+      <p>
+        Exploring website development, digital design,
+        and creative solutions.
+      </p>
+      <span>View Design Projects →</span>
+    </a>
+
+    <a href="projects.html" class="specialty-card">
+      <h3>Cybersecurity Technology</h3>
+      <p>
+        Applying technical knowledge through security,
+        networking, and cloud computing projects.
+      </p>
+      <span>View Cybersecurity Projects →</span>
+    </a>
+
+    <a href="art.html" class="specialty-card">
+      <h3>Traditional Art</h3>
+      <p>
+        Exploring creativity through drawing,
+        composition, and artistic techniques.
+      </p>
+      <span>View Artwork →</span>
+    </a>
+
+  </div>
+</section>
+  </main>
+
+  <!-- Website Footer -->
+  <footer>
+    <p>&copy; 2026 Shantell Vine. All rights reserved.</p>
+  </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const intro = document.getElementById("vine-intro");
+    const skipButton = document.getElementById("vine-intro-skip");
+
+    if (!intro || !skipButton) return;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    let closing = false;
+
+    function closeIntro() {
+      if (closing) return;
+      closing = true;
+
+      intro.classList.add("is-closing");
+
+      window.setTimeout(() => {
+        intro.remove();
+      }, reducedMotion ? 0 : 800);
+    }
+
+    // Skip the introduction if already viewed in this tab.
+    try {
+      if (sessionStorage.getItem("vine-intro-seen") === "true") {
+        intro.remove();
+        return;
+      }
+
+      sessionStorage.setItem("vine-intro-seen", "true");
+    } catch (error) {
+      // Continue normally if browser storage is unavailable.
+    }
+
+    const introTimer = window.setTimeout(
+      closeIntro,
+      reducedMotion ? 0 : 4000
+    );
+
+    skipButton.addEventListener("click", () => {
+      window.clearTimeout(introTimer);
+      closeIntro();
+    });
+  });
+</script>
+
+</body>
+</html>

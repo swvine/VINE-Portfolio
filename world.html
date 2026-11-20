@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Explore VINE World, an interactive creative garden by Shantell Vine.">
+
+  <title>VINE World | Design • Technology • Creativity</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/world.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+  
+</head>
+
+<body class="world-page">
+
+  <header class="world-header">
+    <a href="index.html" class="world-logo">VINE</a>
+
+    <a href="index.html" class="world-exit">
+      Exit World
+    </a>
+  </header>
+
+  <main id="world-main">
+
+    <section class="world-introduction">
+      <h1>Welcome to VINE World</h1>
+
+      <p>
+        Explore a creative world where design,
+        technology, and art come together.
+      </p>
+
+      
+<p class="world-instructions">
+  <span class="desktop-instructions">
+    Drag to explore • Scroll to zoom • Click a building or street sign to enter
+  </span>
+  <span class="touch-instructions" hidden>
+    Drag to explore • Pinch to zoom • Tap a building or street sign to enter
+  </span>
+</p>
+
+    </section>
+
+    <!-- Interactive 3D garden will be added here -->
+    <div id="vine-world-scene"
+         aria-label="Interactive VINE World garden">
+    </div>
+
+  </main>
+
+  <footer class="world-footer">
+    <p>&copy; 2026 Shantell Vine. All rights reserved.</p>
+  </footer>
+
+<script type="module" src="js/world.js"></script>
+</body>
+</html>
